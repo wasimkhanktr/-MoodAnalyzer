@@ -53,5 +53,13 @@ namespace MSTesting
             string actual = obj.ToString();
             Assert.AreEqual("MoodAnalyzer.MoodAnalyzerCustomException: No Such Method", actual);
         }
+        [TestMethod]
+        public void GivenImproperConstructorname_SoReturnConstructorNotFound()
+        {
+            object expected = new MoodAnalyser();
+            object obj = MoodAnalyzerFactory.CreateMoodAnalyserUsingParameterizedConstructer("MoodAnalyzer.MoodAnalyser", "MoodAnalser", "with Constructor");
+            string actual = obj.ToString();
+            Assert.AreEqual("MoodAnalyzer.MoodAnalyzerCustomException: Constructor Not Found", actual);
+        }
     }
 }
